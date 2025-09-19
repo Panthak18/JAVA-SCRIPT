@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Number Guessing Game </title>
+  <style>
+  body {
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  color: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding-top: 80px;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #b5b5b5;
+  margin-bottom: 20px;
+}
+
+/* Input */
+input[type="number"] {
+  padding: 12px;
+  font-size: 16px;
+  width: 200px;
+  border: 2px solid #4ecca3;
+  border-radius: 12px;
+  background-color: #1b1b2f;
+  color: #f9f9f9;
+  outline: none;
+  text-align: center;
+}
+
+input[type="number"]:focus {
+  border-color: #38a3a5;
+}
+
+/* Button */
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 12px;
+  background-color: #4ecca3;
+  color: #1b1b2f;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #38a3a5;
+}
+
+#message {
+  margin-top: 25px;
+  font-size: 1.2rem;
+  color: #ffd369;
+  font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+
+  <h1>Number Guessing Game</h1>
+  <p>Guess a number between 1 and 100</p>
+
+  <input type="number" id="guessInput" min="1" max="100">
+  <button onclick="checkGuess()">Guess</button>
+
+  <p id="message"></p>
+
+  <script>let secret = Math.floor(Math.random() * 100) + 1;
+
+function checkGuess() {
+  let guess = +document.getElementById("guessInput").value;
+  let msg = document.getElementById("message");
+
+  if (guess === secret) msg.textContent = "🎉 Correct!";
+  else msg.textContent = guess < secret ? "📉 Too low!" : "📈 Too high!";
+}
+</script>
+</body>
+</html>
